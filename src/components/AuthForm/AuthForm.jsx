@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AuthButton } from '../Buttons';
 import { InputPassword, InputText } from '../Input';
-import { Required } from '../../utils/Validation';
+import { Max, Min, Required } from '../../utils/Validation';
 import './styles.scss';
 
 const AuthForm = () => {
@@ -13,8 +13,12 @@ const AuthForm = () => {
 
   const formSubmitHandler = (e) =>{
     e.preventDefault();
-    setEmailError(prev=>Required(email, MSG_1));
-    setPassError(prev=>Required(pass, MSG_1))
+    setEmailError(Required(email, MSG_1)||
+                Max(email, 64, 'Максимальная длина 64 символа')||
+                Min(email, 10, 'Минимальная длина 10 символов'));
+    setPassError(Required(pass, MSG_1) ||
+                Max(pass, 15, 'Максимальная длина 15 символа')||
+                Min(pass, 8, 'Минимальная длина 8 символов'));
   }
 
   useEffect(()=>{
