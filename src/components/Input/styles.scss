@@ -1,0 +1,69 @@
+.auth-input{
+    display: block;
+    width: 390px;
+    height: 50px;
+    padding: 8px 16px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    outline: none;
+    border: 2px solid #EAEBED;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #353535;
+    &~.showPass_btn{
+        &.eye-off{
+            background: url("../../assets/eye-off_inactive.png");
+        }
+        &.eye{
+            background: url("../../assets/eye_inactive.png");
+        }
+    }
+}
+.auth-input:not(:placeholder-shown){
+    border-color: #49AAF5;
+    background-color: #f5fbff;
+    &~.showPass_btn{
+        &.eye-off{
+            background: url("../../assets/eye-off.png");
+        }
+        &.eye{
+            background: url("../../assets/eye.png");
+        }
+    }
+}
+.auth-input:focus{
+    border-color: #49AAF5;
+    background-color: #fff;
+}
+.auth-input::placeholder{
+    font-size: 16px;
+    font-weight: 400;
+    color: #EAEBED;
+}
+.error input{
+    margin-bottom: 8px;
+    border-color: #FF4C4C;
+    background-color: #fff;
+}
+.auth-label{
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+    color: #353535;
+}
+.errorMessage {
+    font-weight: 400;
+    font-size: 14px;
+    color: #FF4C4C;
+    margin-bottom: 16px;
+}
+
+.showPass_btn{
+    position: absolute;
+    right: 16px;
+    bottom: 13px;    
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+}
